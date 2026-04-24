@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net48</TargetFramework>
+        <LangVersion>13.0</LangVersion>
+        <OutputType>Library</OutputType>
+        <AssemblyName>DragScp096</AssemblyName>
+        <PlatformTarget>x64</PlatformTarget>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <GameManaged>D:\steam\steamapps\common\SCP Secret Laboratory Dedicated Server\SCPSL_Data\Managed</GameManaged>
+        <ExiledDeps>C:\Users\Сергей\AppData\Roaming\SCP Secret Laboratory\LabAPI\dependencies\global</ExiledDeps>
+        <ExiledPlugins>C:\Users\Сергей\AppData\Roaming\EXILED\Plugins</ExiledPlugins>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Remove="EXILED\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <!-- EXILED -->
+        <Reference Include="Exiled.API" HintPath="$(ExiledDeps)\Exiled.API.dll" Private="false" />
+        <Reference Include="Exiled.Events" HintPath="$(ExiledPlugins)\Exiled.Events.dll" Private="false" />
+
+        <!-- Game assemblies -->
+        <Reference Include="Assembly-CSharp" HintPath="$(GameManaged)\Assembly-CSharp-Publicized.dll" Private="false" />
+        <Reference Include="Assembly-CSharp-firstpass" HintPath="$(GameManaged)\Assembly-CSharp-firstpass.dll" Private="false" />
+        <Reference Include="CommandSystem.Core" HintPath="$(GameManaged)\CommandSystem.Core.dll" Private="false" />
+        <Reference Include="LabApi" HintPath="$(GameManaged)\LabApi.dll" Private="false" />
+        <Reference Include="Mirror" HintPath="$(GameManaged)\Mirror.dll" Private="false" />
+        <Reference Include="NorthwoodLib" HintPath="$(GameManaged)\NorthwoodLib.dll" Private="false" />
+
+        <!-- Unity -->
+        <Reference Include="UnityEngine" HintPath="$(GameManaged)\UnityEngine.dll" Private="false" />
+        <Reference Include="UnityEngine.CoreModule" HintPath="$(GameManaged)\UnityEngine.CoreModule.dll" Private="false" />
+        <Reference Include="UnityEngine.PhysicsModule" HintPath="$(GameManaged)\UnityEngine.PhysicsModule.dll" Private="false" />
+
+        <!-- Harmony (MEC is inside Assembly-CSharp) -->
+        <Reference Include="0Harmony" HintPath="$(ExiledDeps)\0Harmony.dll" Private="false" />
+    </ItemGroup>
+
+</Project>
